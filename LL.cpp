@@ -74,7 +74,3 @@ Node* deletefromend(Node* head){
     return head;
 }
 
-int main(){
-    dsipaly()
-    display(str);
-}
