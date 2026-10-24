@@ -1,9 +1,6 @@
 #include <iostream>
 
 using namespace std;
-
-
-
 void CreateArray(int Array[],int n){
     for (int i=0;i<n;i++){
         cout<<"Enter Element at: "<<i<<endl;
@@ -47,7 +44,7 @@ int main(){
     cin>>n;
     int arr[n];
     CreateArray(arr,n);
-    // smallLargeArrayElement(arr,n);
+    smallLargeArrayElement(arr,n);
     cout<<"Linear Search"<<linearSearch(arr,n)<<endl;
     return 0;
 }
