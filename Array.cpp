@@ -25,7 +25,7 @@ int smallLargeArrayElement(int arr[],int size){
     cout<<"Smallest: "<<smallest<<endl;
     return 0;
 }
-int linearSearch(int arr[],int n){
+int linearSearch(int arr[],int n){ //O(n)
     int target;
     cout<<"Target: "<<endl;
     cin>>target;
@@ -38,6 +38,20 @@ int linearSearch(int arr[],int n){
     }
     return -1;
 }
+
+void reverseArray(int arr[],int n){
+    int st=0;
+    int end=n-1;
+    while(st<n/2){
+        swap(arr[st],arr[end]);
+        st+=1;
+        end-=1;
+    }
+    for (int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+}
 int main(){
     int n;
     cout<<"Enter No of elements:";
@@ -45,6 +59,7 @@ int main(){
     int arr[n];
     CreateArray(arr,n);
     smallLargeArrayElement(arr,n);
-    cout<<"Linear Search"<<linearSearch(arr,n)<<endl;
+    cout<<"Linear Search "<<linearSearch(arr,n)<<endl;
+    reverseArray(arr,n);
     return 0;
 }
