@@ -1,10 +1,9 @@
 #include <iostream>
-#include <vector>
 
 using namespace std;
-vector<int> CreateArray(int n){
+void CreateArray(int Array[],int n){
 
-    vector<int> Array(n);
+    
     for (int i=0;i<n;i++){
         cout<<"Enter Element at: "<<i<<endl;
         cin>>Array[i];    
@@ -14,9 +13,8 @@ vector<int> CreateArray(int n){
         cout<<Array[i]<<" ";
     }
     cout<<endl;
-    return Array;
 }
-int smallLargeArrayElement(const vector<int>& arr,int size){
+int smallLargeArrayElement(int arr[],int size){
     int smallest=INT_MAX;
     int largest=INT_MIN;
 
@@ -34,8 +32,8 @@ int main(){
     int n;
     cout<<"Enter No of elements:";
     cin>>n;
-    
-    vector<int> Array=CreateArray(n);
-    smallLargeArrayElement(Array,n);
+    int arr[n];
+    CreateArray(arr,n);
+    smallLargeArrayElement(arr,n);
     return 0;
 }
