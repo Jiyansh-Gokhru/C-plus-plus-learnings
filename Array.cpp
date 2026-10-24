@@ -1,9 +1,10 @@
 #include <iostream>
 
 using namespace std;
-void CreateArray(int Array[],int n){
 
-    
+
+
+void CreateArray(int Array[],int n){
     for (int i=0;i<n;i++){
         cout<<"Enter Element at: "<<i<<endl;
         cin>>Array[i];    
@@ -27,13 +28,26 @@ int smallLargeArrayElement(int arr[],int size){
     cout<<"Smallest: "<<smallest<<endl;
     return 0;
 }
+int linearSearch(int arr[],int n){
+    int target;
+    cout<<"Target: "<<endl;
+    cin>>target;
 
+    cout<<"at Index: ";
+    for (int i=0;i<n;i++){
+        if (arr[i]==target){
+            return i;
+        }
+    }
+    return -1;
+}
 int main(){
     int n;
     cout<<"Enter No of elements:";
     cin>>n;
     int arr[n];
     CreateArray(arr,n);
-    smallLargeArrayElement(arr,n);
+    // smallLargeArrayElement(arr,n);
+    cout<<"Linear Search"<<linearSearch(arr,n)<<endl;
     return 0;
 }
