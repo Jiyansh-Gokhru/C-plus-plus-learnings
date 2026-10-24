@@ -11,19 +11,25 @@ void CreateArray(int Array[],int n){
         cout<<Array[i]<<" ";
     }
     cout<<endl;
+    return;
 }
-int smallLargeArrayElement(int arr[],int size){
-    int smallest=INT_MAX;
-    int largest=INT_MIN;
+pair<int,int> smallLargeArrayElement(int arr[],int size){
+    int smallest=0;
+    int largest=0;
 
     for (int i=0;i<size;i++){
-        largest=max(largest,arr[i]);
-        smallest=min(smallest,arr[i]);
+        if (arr[i]>arr[largest]){
+            largest=i;
+        }
+        if (arr[i]<arr[smallest]){
+            smallest=i;
+        }
     }
+    
 
-    cout<<"Largest: "<<largest<<endl;
-    cout<<"Smallest: "<<smallest<<endl;
-    return 0;
+    cout<<"Largest: "<<arr[largest]<<endl;
+    cout<<"Smallest: "<<arr[smallest]<<endl;
+    return {smallest,largest};
 }
 int linearSearch(int arr[],int n){ //O(n)
     int target;
@@ -39,7 +45,7 @@ int linearSearch(int arr[],int n){ //O(n)
     return -1;
 }
 
-void reverseArray(int arr[],int n){
+void reverseArray(int arr[],int n){ //O(n)
     int st=0;
     int end=n-1;
     while(st<n/2){
@@ -51,7 +57,51 @@ void reverseArray(int arr[],int n){
         cout<<arr[i]<<" ";
     }
     cout<<endl;
+    return;
 }
+
+void arrayCalc(int arr[],int n){
+    int sum=0;
+    long int product=1;
+    int i=0;
+    while(i<n){
+        sum+=arr[i];
+        product*=arr[i];
+        i++;
+    }
+    cout<<"Sum: "<<sum<<" and Product: "<<product<<endl;
+    return;
+}
+
+void SwapMaxMinArray(int arr[],int n){
+    auto [min,max]=smallLargeArrayElement(arr,n);
+    swap(arr[min],arr[max]);
+    for (int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+    return;
+}
+void UniqueArray(int arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        bool isDuplicate = false;
+
+        
+        for (int j = 0; j < n; j++) {
+            if (i != j && arr[i] == arr[j]) {
+                isDuplicate = true;
+                break;
+            }
+        }
+        if (!isDuplicate) {
+            cout << arr[i] << " ";
+        }
+    }
+    cout<<endl;
+}
+
+
+
 int main(){
     int n;
     cout<<"Enter No of elements:";
@@ -61,5 +111,8 @@ int main(){
     smallLargeArrayElement(arr,n);
     cout<<"Linear Search "<<linearSearch(arr,n)<<endl;
     reverseArray(arr,n);
+    arrayCalc(arr,n);
+    SwapMaxMinArray(arr,n);
+    UniqueArray(arr,n);
     return 0;
 }
