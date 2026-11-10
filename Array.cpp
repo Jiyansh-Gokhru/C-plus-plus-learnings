@@ -115,4 +115,5 @@ int main(){
     SwapMaxMinArray(arr,n);
     UniqueArray(arr,n);
     return 0;
-}
+
+} 
